@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corvette Design Sharing Community</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🚢 Corvette Design Sharing Community</h1>
+        <p>Share and discover amazing corvette ship designs from the community!</p>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <h2>How to Share Your Design</h2>
+            <div class="upload-instructions">
+                <ol>
+                    <li>Fork this repository</li>
+                    <li>Add your design image to the <code>designs/images/</code> folder</li>
+                    <li>Add your design JSON file to the <code>designs/data/</code> folder</li>
+                    <li>Update the <code>designs/index.json</code> file with your design entry</li>
+                    <li>Create a pull request</li>
+                </ol>
+                <p><strong>File naming:</strong> Use format <code>your-design-name.jpg</code> and <code>your-design-name.json</code></p>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h2>Community Designs</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search designs by name, author, or tags...">
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="combat">Combat</button>
+                <button class="filter-btn" data-filter="exploration">Exploration</button>
+                <button class="filter-btn" data-filter="transport">Transport</button>
+            </div>
+            <div id="designGallery" class="design-gallery">
+                <!-- Designs will be loaded here dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with ❤️ by the corvette design community</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
