@@ -1,0 +1,54 @@
+{
+  "name": "Swift Strike Corvette",
+  "author": "SpaceEngineer42",
+  "version": "1.2",
+  "description": "A fast attack corvette designed for hit-and-run tactics. Features advanced propulsion systems and lightweight armor for maximum speed.",
+  "tags": ["combat", "fast", "light"],
+  "specifications": {
+    "length": "120m",
+    "mass": "850 tons",
+    "maxSpeed": "185 m/s",
+    "armor": "Light Steel",
+    "primaryWeapon": "Railgun Turret",
+    "crew": 8,
+    "powerOutput": "2.5 MW",
+    "thrustToWeightRatio": 2.1
+  },
+  "components": {
+    "hull": {
+      "material": "Light Steel Armor",
+      "thickness": "25cm",
+      "coverage": "85%"
+    },
+    "propulsion": {
+      "mainThrusters": "4x Large Ion Thrusters",
+      "maneuveringThrusters": "16x Small Ion Thrusters",
+      "fuelType": "Hydrogen"
+    },
+    "weapons": {
+      "primary": "1x Railgun Turret",
+      "secondary": "2x Gatling Turrets",
+      "pointDefense": "4x Interior Turrets"
+    },
+    "systems": {
+      "reactor": "Large Reactor",
+      "jumpDrive": "Jump Drive",
+      "antennas": "4x Antennas",
+      "sensors": "Basic Sensor Package"
+    }
+  },
+  "buildNotes": [
+    "Prioritize speed over armor - this is a hit-and-run vessel",
+    "Ensure adequate power distribution to weapons and thrusters",
+    "Add conveyor system for automated ammunition supply",
+    "Consider adding decoy launchers for survivability"
+  ],
+  "resourceRequirements": {
+    "steelPlates": 15420,
+    "interiorPlates": 8950,
+    "construction": 12300,
+    "motors": 485,
+    "computers": 125,
+    "powerCells": 95
+  }
+}

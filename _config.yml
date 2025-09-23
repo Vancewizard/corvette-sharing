@@ -1,0 +1,19 @@
+name: corvette-sharing
+title: Corvette Design Sharing Community
+description: A community-driven database of corvette ship designs
+
+# GitHub Pages settings
+theme: 
+plugins:
+  - jekyll-default-layout
+
+# Custom settings
+url: https://abendrothj.github.io/corvette-sharing
+baseurl: /corvette-sharing
+
+# Default layout
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
