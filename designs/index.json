@@ -18,6 +18,33 @@
         "Requires mod: Enable extra items in internal base building.",
         "Back up your save before editing JSON."
       ]
+    },
+    {
+      "id": "zagibu-skyranger",
+      "name": "Skyranger",
+      "author": "zagibu",
+      "description": "A multirole ship with a 360° observation deck",
+      "image": "zagibu-skyranger.png",
+      "dataFile": "zagibu-skyranger.json",
+      "tags": ["multirole", "exploration", "medium"],
+      "version": "1.0",
+      "dateAdded": "2025-09-24",
+      "specifications": {
+        "length": "32m",
+        "mass": "267 tons",
+        "maxSpeed": "150 m/s",
+        "armor": "Ferro-infused ceramoplast",
+        "crew": 4
+      },
+      "components": {
+        "hull": { "material": "Ferro-infused ceramoplast", "thickness": "18cm" },
+        "propulsion": { "mainThrusters": "1x Kineostream Thruster, 2x Thunderbird Heavy Booster" },
+        "weapons": { "primary": "2x Phase Beam" },
+        "systems": { "reactor": "2x Azimuth, 1x Medusa" }
+      },
+      "buildNotes": [
+        "Has no landing gear and instead hovers over ground",
+      ]
     }
   ]
 }
