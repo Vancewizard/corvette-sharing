@@ -8,9 +8,44 @@ class CorvetteGallery {
     }
 
     async init() {
+        this.initTheme(); // Initialize theme first
         await this.loadDesigns();
         this.setupEventListeners();
         this.renderGallery();
+    }
+
+    initTheme() {
+        // Check if user has a saved theme preference, otherwise default to dark
+        const savedTheme = localStorage.getItem('corvette-theme');
+        const defaultTheme = savedTheme || 'dark';
+        
+        // Apply the theme
+        document.documentElement.setAttribute('data-theme', defaultTheme);
+        
+        // Update toggle button icon
+        this.updateThemeToggleIcon(defaultTheme);
+        
+        // Setup theme toggle listener
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => this.toggleTheme());
+        }
+    }
+
+    toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('corvette-theme', newTheme);
+        this.updateThemeToggleIcon(newTheme);
+    }
+
+    updateThemeToggleIcon(theme) {
+        const themeIcon = document.querySelector('.theme-icon');
+        if (themeIcon) {
+            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
     }
 
     async loadDesigns() {
