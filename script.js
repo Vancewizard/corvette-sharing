@@ -8,9 +8,10 @@ class CorvetteGallery {
     }
 
     async init() {
-        this.initTheme(); // Initialize theme first
+		this.initTheme(); // Initialize theme first
         await this.loadDesigns();
         this.setupEventListeners();
+		this.renderInstallInstructions();
         this.renderGallery();
     }
 
@@ -108,6 +109,44 @@ class CorvetteGallery {
         this.renderGallery();
     }
 
+	renderInstallInstructions() {
+		const main = document.querySelector('main');
+		if (!main) return;
+
+		const gallerySection = document.querySelector('.gallery-section');
+		const section = document.createElement('section');
+		section.className = 'instructions-section';
+		section.innerHTML = `
+			<h2>Share and Import Corvettes (Objects JSON)</h2>
+			<div class="upload-instructions">
+				<p><strong>Which player is this site for?</strong> Browsing and downloading designs here makes you <strong>Player 2 (Importer)</strong>. If you want to publish your own design to this site, you act as <strong>Player 1 (Sharer)</strong> by exporting your <code>Objects</code> and submitting a PR to add it to the gallery.</p>
+				<p><strong>Safety:</strong> Always back up/copy your save data before accessing/editing JSON files. Changing JSON data can break your save.</p>
+				<h3>Tooling</h3>
+				<p>Use the lightweight Python utilities to export and reinsert a ship-associated base <code>Objects</code> payload. See <a href="https://github.com/Effex-D/nms-corvette-sharing/" target="_blank" rel="noopener">nms-corvette-sharing</a> for details.</p>
+				<h3>To Share (Player 1)</h3>
+				<ol>
+					<li>Export your save to JSON (e.g., with NomNom).</li>
+					<li>Run exporter, e.g.: <code>python nms_objects_exporter.py --input /path/to/save.json --ship \"Exact Ship Name\" --output ./objects.json --tolerance-seconds 60</code></li>
+					<li>Share <code>objects.json</code> via a paste/link service.</li>
+				</ol>
+				<h3>To Import (Player 2)</h3>
+				<ol>
+					<li>Create a corvette to overwrite, then equip a different ship.</li>
+					<li>Save by entering/exiting the cockpit, then exit the game.</li>
+					<li>Run inserter, e.g.: <code>python nms_objects_inserter.py --save-in /path/to/save.json --ship \"Exact Ship Name\" --objects ./objects.json --save-out ./patched_save.json --tolerance-seconds 60</code></li>
+					<li>Load your patched save and verify the ship.</li>
+				</ol>
+				<p><em>Notes:</em> Increase <code>--tolerance-seconds</code> if the base isn’t matched; only the matched base’s <code>Objects</code> field is modified. Guidance adapted from <a href="https://www.nexusmods.com/nomanssky/mods/3791?tab=posts" target="_blank" rel="noopener">Nexus Mods posts</a>.</p>
+			</div>
+		`;
+
+		if (gallerySection && gallerySection.parentNode) {
+			gallerySection.parentNode.insertBefore(section, gallerySection);
+		} else {
+			main.appendChild(section);
+		}
+	}
+
     renderGallery() {
         const gallery = document.getElementById('designGallery');
         if (!gallery) return;
@@ -203,7 +242,7 @@ class CorvetteGallery {
                 ${design.dataFile ? `
                     <div style="margin: 1rem 0;">
                         <a href="${downloadLink}" download style="background: #667eea; color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; display: inline-block;">
-                            📁 Download Design File
+                            📁 Download Objects (Player 2)
                         </a>
                     </div>
                 ` : ''}
