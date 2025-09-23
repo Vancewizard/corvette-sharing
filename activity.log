@@ -1,0 +1,4 @@
+[2025-09-23 12:10:00] Moved and renamed Venator JSON to designs/data/venator-star-destroyer-corvette.json and image to designs/images/venator-star-destroyer-corvette.png.
+[2025-09-23 12:11:00] Updated designs/index.json with Venator entry and buildNotes for required Nexus mods.
+[2025-09-23 12:12:00] Updated script.js modal to render optional buildNotes.
+[2025-09-23 12:00:00] README: Added Share/Import Corvettes (Objects JSON) section; included exporter/inserter examples; cited GitHub repo and Nexus Mods posts; added safety warning to back up saves.

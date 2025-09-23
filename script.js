@@ -194,6 +194,12 @@ class CorvetteGallery {
                         </ul>
                     </div>
                 ` : ''}
+                ${design.buildNotes && design.buildNotes.length ? `
+                    <div style="margin: 1rem 0;">
+                        <strong>Build Notes:</strong>
+                        <ul style=\"margin-left: 1rem;\">${design.buildNotes.map(n => `<li>${n}</li>`).join('')}</ul>
+                    </div>
+                ` : ''}
                 ${design.dataFile ? `
                     <div style="margin: 1rem 0;">
                         <a href="${downloadLink}" download style="background: #667eea; color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; display: inline-block;">

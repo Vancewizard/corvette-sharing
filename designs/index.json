@@ -1,3 +1,23 @@
 {
-  "designs": []
+  "designs": [
+    {
+      "id": "venator-star-destroyer-corvette",
+      "name": "Venator Star Destroyer Corvette",
+      "author": "Vanceroland",
+      "description": "Player ship base layout for a Venator-style Star Destroyer corvette.",
+      "image": "venator-star-destroyer-corvette.png",
+      "dataFile": "venator-star-destroyer-corvette.json",
+      "tags": ["combat", "large", "themed"],
+      "version": "1.0",
+      "dateAdded": "2025-09-23",
+      "specifications": {
+        "Notes": "Objects JSON payload for insertion via save editor or tool"
+      },
+      "buildNotes": [
+        "Requires mods: Allow extra build limit and range.",
+        "Requires mod: Enable extra items in internal base building.",
+        "Back up your save before editing JSON."
+      ]
+    }
+  ]
 }
