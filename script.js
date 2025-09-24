@@ -169,7 +169,7 @@ class CorvetteGallery {
         const tags = design.tags ? design.tags.map(tag => `<span class="design-tag">${tag}</span>`).join('') : '';
         
         return `
-            <div class="design-card" data-design='${JSON.stringify(design)}'>
+            <div class="design-card" data-design-id="${design.id}">
                 <img src="${imagePath}" alt="${design.name}" class="design-image" 
                      onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
                 <div class="design-info">
@@ -190,8 +190,11 @@ class CorvetteGallery {
         const cards = document.querySelectorAll('.design-card');
         cards.forEach(card => {
             card.addEventListener('click', () => {
-                const designData = JSON.parse(card.dataset.design);
-                this.showDesignModal(designData);
+                const designId = card.dataset.designId;
+                const design = this.designs.find(d => d.id === designId);
+                if (design) {
+                    this.showDesignModal(design);
+                }
             });
         });
     }
